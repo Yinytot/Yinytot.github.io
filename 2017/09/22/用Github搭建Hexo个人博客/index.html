@@ -19,7 +19,7 @@
 <meta property="og:image" content="//yyzhen.top/img/nj.png">
 <meta property="og:image" content="//yyzhen.top/img/resposition.png">
 <meta property="og:image" content="//yyzhen.top/img/ssh_keys.png">
-<meta property="og:updated_time" content="2017-09-22T10:32:43.607Z">
+<meta property="og:updated_time" content="2017-09-23T08:53:52.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Github搭建Hexo个人博客">
 <meta name="twitter:description" content="最近看到很多技术友们有自己的博客，心中蠢蠢欲动，也想自己搭建一个博客，写写自己在技术之路上的小小心得。心动不如行动，马上开始吧！搭建博客有很多选择，你可以直接用别人搭建好的，比如简书、Lofter、Tumblr等等，当然你也可以选择搭建一个独立的个人博客，搭建个人博客也有很多选择，我选择的是Github+Hexo。 1.环境搭建Node.js: 下载地址 https://nodejs.org/en">
@@ -210,6 +210,10 @@
 <p>SSH Key配置成功，本机已成功连接到github。<br>当然，GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。</p>
 <h2 id="3-下载主题"><a href="#3-下载主题" class="headerlink" title="3.下载主题"></a>3.下载主题</h2><p><strong>  3.1 下载安装Hexo </strong></p>
 <p>什么是Hexo？Hexo是快速、简单、强大的博客发布工具，支持Markdown格式。Hexo官网 <a href="https://hexo.io/docs/index.html" title="Hexo官方文档" target="_blank" rel="external">https://hexo.io/docs/index.html</a></p>
+<p>安装Hexo：打开Git Bash工具，执行以下命令进行安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure>
+<p>安装成功后，在克隆到本地仓库的文件夹里，新建一个名字叫做[Hexo]的文件夹，然后在此文件夹中右键打开Git Bash窗口，进行以下操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">    初始化hexo</div><div class="line">$ hexo init</div><div class="line">    </div><div class="line">    安装依赖包</div><div class="line">$ npm install</div><div class="line">    Hexo随后会自动在目标文件夹建立网站所需要的所有文件。</div><div class="line">    现在我们已经搭建起本地的hexo博客了，执行以下命令，然后到浏览器输入localhost:4000看看。</div><div class="line">    本地查看</div><div class="line">$ hexo generate <span class="comment">#生成静态页面至public目录（最终上传这个文件到GitHub）</span></div><div class="line">$ hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
