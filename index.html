@@ -166,6 +166,97 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-使用json-server模拟REST-API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/使用json-server模拟REST-API/">使用json-server模拟REST API</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/28/使用json-server模拟REST-API/" class="archive-article-date">
+  	<time datetime="2017-09-28T08:18:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="使用json-server模拟REST-API"><a href="#使用json-server模拟REST-API" class="headerlink" title="使用json-server模拟REST API"></a>使用json-server模拟REST API</h2><p>参考网址：<br><a href="https://github.com/typicode/json-server" target="_blank" rel="external">https://github.com/typicode/json-server</a><br><a href="https://segmentfault.com/a/1190000005793257" target="_blank" rel="external">https://segmentfault.com/a/1190000005793257</a></p>
+<p>在开发过程中，前后端不论是否分离，接口多半是滞后于页面开发的。所以建立一个REST风格的API接口，给前端页面提供虚拟的数据，是非常有必要的。</p>
+<p>选择了使用 json server 作为工具，因为它足够简单，写少量数据，即可使用。也因为它足够强大，支持CORS和JSONP跨域请求，支持GET, POST, PUT, PATCH 和 DELETE 方法，更提供了一系列的查询方法，如limit，order等。下面我将详细介绍 我用vue-cli搭建的项目中使用json server 的具体操作。</p>
+<h2 id="安装json-server"><a href="#安装json-server" class="headerlink" title="安装json-server"></a>安装json-server</h2><p>安装json-server(前提是你的电脑安装了node并且配置都没有问题)，打开Git Bash命令窗口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install json-server --save</div></pre></td></tr></table></figure>
+<p>使用linux和macOS的电脑需要加上sudo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo npm install json-server -g</div></pre></td></tr></table></figure></p>
+<p>安装完成后可以用 json-server -h 命令检查是否安装成功，成功后会出现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">json-server [options] &lt;<span class="built_in">source</span>&gt;</div><div class="line"></div><div class="line">选项：</div><div class="line">  --config, -c       Path to config file            [默认值: <span class="string">"json-server.json"</span>]</div><div class="line">  --port, -p         Set port                                     [默认值: 3000]</div><div class="line">  --host, -H         Set host                                [默认值: <span class="string">"0.0.0.0"</span>]</div><div class="line">  --watch, -w        Watch file(s)                                        [布尔]</div><div class="line">  --routes, -r       Path to routes file</div><div class="line">  --static, -s       Set static files directory</div><div class="line">  --<span class="built_in">read</span>-only, --ro  Allow only GET requests                              [布尔]</div><div class="line">  --no-cors, --nc    Disable Cross-Origin Resource Sharing                [布尔]</div><div class="line">  --no-gzip, --ng    Disable GZIP Content-Encoding                        [布尔]</div><div class="line">  --snapshots, -S    Set snapshots directory                       [默认值: <span class="string">"."</span>]</div><div class="line">  --delay, -d        Add delay to responses (ms)</div><div class="line">  --id, -i           Set database id property (e.g. _id)          [默认值: <span class="string">"id"</span>]</div><div class="line">  --quiet, -q        Suppress <span class="built_in">log</span> messages from output                    [布尔]</div><div class="line">  --<span class="built_in">help</span>, -h         显示帮助信息                                         [布尔]</div><div class="line">  --version, -v      显示版本号                                           [布尔]</div><div class="line"></div><div class="line">示例：</div><div class="line">  json-server db.json</div><div class="line">  json-server file.js</div><div class="line">  json-server http://example.com/db.json</div><div class="line"></div><div class="line">https://github.com/typicode/json-server</div></pre></td></tr></table></figure>
+<h3 id="新建xxx-json文件"><a href="#新建xxx-json文件" class="headerlink" title="新建xxx.json文件"></a>新建xxx.json文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">项目目录结构</div><div class="line"></div><div class="line">|——build</div><div class="line">|   |——build.js</div><div class="line">|   |——check-versions.js</div><div class="line">|   |——dev-client.js</div><div class="line">|   |——dev-server</div><div class="line">|   |——utils.js</div><div class="line">|   .....</div><div class="line">|——config</div><div class="line">|   |——dev.env.js</div><div class="line">|   |——index.js</div><div class="line">|   |——prod.env.js</div><div class="line">|——node_modules</div><div class="line">|——src</div><div class="line">|——static</div><div class="line">|——.balelrc</div><div class="line">|——.enditorconfig</div><div class="line">|——.gitignore</div><div class="line">|——.postcssrc.js</div><div class="line">|——db.json</div><div class="line">|——index.html</div><div class="line">|——package.json</div><div class="line">|——README.md</div></pre></td></tr></table></figure>
+<p>在主目录下新建一个db.json文件，并写以下内容（写你自己想要获取的内容）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"getNewsList"</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="string">"id"</span>: 1,</div><div class="line">      <span class="string">"title"</span>: <span class="string">"新闻1标题"</span>,</div><div class="line">      <span class="string">"url"</span>: <span class="string">"http://starcraft.com"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"id"</span>: 2,</div><div class="line">      <span class="string">"title"</span>: <span class="string">"新闻2标题发布"</span>,</div><div class="line">      <span class="string">"url"</span>: <span class="string">"http://warcraft.com"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"id"</span>: 3,</div><div class="line">      <span class="string">"title"</span>: <span class="string">"新闻3标题呀呀呀"</span>,</div><div class="line">      <span class="string">"url"</span>: <span class="string">"http://overwatch.com"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"id"</span>: 4,</div><div class="line">      <span class="string">"title"</span>: <span class="string">"新闻4标题新闻4标题新闻4标题"</span>,</div><div class="line">      <span class="string">"url"</span>: <span class="string">"http://hearstone.com"</span></div><div class="line">    &#125;</div><div class="line">  ],</div><div class="line">  <span class="string">"login"</span>: &#123;</div><div class="line">    <span class="string">"username"</span>: <span class="string">"zhouasan"</span>,</div><div class="line">    <span class="string">"userId"</span>: 123123</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="配置json-server"><a href="#配置json-server" class="headerlink" title="配置json-server"></a>配置json-server</h3><p>vue-cli搭建出来的项目，所有的测试符都在 build/dev-server.js 这个文件中，现在打开这个文件添加json-server配置，添加下面这一段代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">  //jsonServer的配置(提供虚拟的后台数据的jsonServer)</div><div class="line">const jsonServer = require(<span class="string">'json-server'</span>)</div><div class="line">const apiServer = jsonServer.create()</div><div class="line">const apiRouter = jsonServer.router(<span class="string">'db.json'</span>) //db.json是前面建的文件</div><div class="line">const middlewares = jsonServer.defaults()</div><div class="line"></div><div class="line">apiServer.use(middlewares)</div><div class="line">apiServer.use(<span class="string">'/api'</span>,apiRouter) //所有的路由会加上<span class="string">"/api"</span>前缀,将所有的路由名代理到api目录下</div><div class="line">apiServer.listen(port + 1, () =&gt; &#123;</div><div class="line">  console.log(<span class="string">'JSON Server is running'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>启动服务器，这个时候访问 <a href="http://localhost:8080/页面正常显示，然后访问" target="_blank" rel="external">http://localhost:8080/页面正常显示，然后访问</a> <a href="http://localhost:8081/" target="_blank" rel="external">http://localhost:8081/</a> 可以查看json-server配置的接口是否请求成功。port端口可以在config/index.js文件中设置。</p>
+<h3 id="开启服务器端口代理"><a href="#开启服务器端口代理" class="headerlink" title="开启服务器端口代理"></a>开启服务器端口代理</h3><p>打开config/index.js文件，增加proxyTable项设置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">dev: &#123;</div><div class="line"> env: require(<span class="string">'./dev.env'</span>),</div><div class="line"> port: 8080,</div><div class="line"> autoOpenBrowser: <span class="literal">true</span>,</div><div class="line"> assetsSubDirectory: <span class="string">'static'</span>,</div><div class="line"> assetsPublicPath: <span class="string">'/'</span>,</div><div class="line"> proxyTable: &#123;</div><div class="line">   <span class="string">'/api/'</span>:<span class="string">'http://localhost:8081'</span></div><div class="line">  &#125;, //jsonServer开启端口代理,访问api这个接口会自动代理到8081端口</div><div class="line"> ....</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="操作数据"><a href="#操作数据" class="headerlink" title="操作数据"></a>操作数据</h3><p>现在到vue组建中发起一个简单的get请求<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">created</span></span>() &#123;</div><div class="line"> this.<span class="variable">$http</span>.get(<span class="string">'api/getNewsList'</span>)</div><div class="line"> .<span class="keyword">then</span>((res) =&gt; &#123;</div><div class="line">   console.log(res.data)</div><div class="line"> 	//this.newsList = res.data</div><div class="line"> &#125;,(err) =&gt; &#123;</div><div class="line">   console.log(err)</div><div class="line"> &#125;)</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>重启服务器就好了，如果报错说端口占用，改一下端口就好了。<br><em><br>备注：上面的实例，在实际的开发过程中，我们只能通过get来返回请求，用post方法请求需要有一个id，没有id会报错，具体如何操作还需研究。我对json-server的理解并不深入，以上内容纯属使用过程的笔记记录，不对之处请不吝赐教。</em></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">json-server Ajax</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/28/使用json-server模拟REST-API/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-用Github搭建Hexo个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -311,7 +402,7 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-使用json-server模拟REST API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
@@ -346,7 +437,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/21/使用json-server模拟REST API/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/09/21/1/">展开全文 >></a>
         </p>
       
 
@@ -470,6 +561,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">json-server Ajax</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Github</a>
