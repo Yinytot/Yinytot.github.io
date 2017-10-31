@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//yyzhen.top">
-  <title>用Node和Express打造restful API | Yinytot的博客</title>
+  <title>Tag: vue | Yinytot的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考网址：http://www.cnblogs.com/winyh/p/6704418.html原文： Build a RESTful API Using Node and Express 4 (原作者 Chris Sevilleja) 在开发过程中，前后端不论是否分离，接口多半是滞后于页面开发的。所以建立一个REST风格的API接口，给前端页面提供虚拟的数据，是非常有必要的。 express是啥">
-<meta name="keywords" content="nede,express">
-<meta property="og:type" content="article">
-<meta property="og:title" content="用Node和Express打造restful API">
-<meta property="og:url" content="//yyzhen.top/2017/09/28/用Node和Express打造restful-API/index.html">
+  <meta name="description" content="blog | yinytot&apos;s blog | 前端 | github">
+<meta name="keywords" content="前端,js,jquery,vue.js,html5,css3,开发者,程序猿">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yinytot的博客">
+<meta property="og:url" content="//yyzhen.top/tags/vue/index.html">
 <meta property="og:site_name" content="Yinytot的博客">
-<meta property="og:description" content="参考网址：http://www.cnblogs.com/winyh/p/6704418.html原文： Build a RESTful API Using Node and Express 4 (原作者 Chris Sevilleja) 在开发过程中，前后端不论是否分离，接口多半是滞后于页面开发的。所以建立一个REST风格的API接口，给前端页面提供虚拟的数据，是非常有必要的。 express是啥">
-<meta property="og:updated_time" content="2017-10-20T06:37:16.413Z">
+<meta property="og:description" content="blog | yinytot&apos;s blog | 前端 | github">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用Node和Express打造restful API">
-<meta name="twitter:description" content="参考网址：http://www.cnblogs.com/winyh/p/6704418.html原文： Build a RESTful API Using Node and Express 4 (原作者 Chris Sevilleja) 在开发过程中，前后端不论是否分离，接口多半是滞后于页面开发的。所以建立一个REST风格的API接口，给前端页面提供虚拟的数据，是非常有必要的。 express是啥">
+<meta name="twitter:title" content="Yinytot的博客">
+<meta name="twitter:description" content="blog | yinytot&apos;s blog | 前端 | github">
   
     <link rel="alternative" href="/atom.xml" title="Yinytot的博客" type="application/atom+xml">
   
@@ -165,199 +164,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-用Node和Express打造restful-API" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      用Node和Express打造restful API
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/10/31/vuejs如何在服务器部署/" class="archive-article-date">
+  	<time datetime="2017-10-31T12:41:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-31</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/10/31/vuejs如何在服务器部署/">vuejs如何在服务器部署</a>
     </h1>
   
 
-        
-        <a href="/2017/09/28/用Node和Express打造restful-API/" class="archive-article-date">
-  	<time datetime="2017-09-28T08:43:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>参考网址：<br><a href="http://www.cnblogs.com/winyh/p/6704418.html" target="_blank" rel="external">http://www.cnblogs.com/winyh/p/6704418.html</a><br>原文： <a href="https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4#our-application" target="_blank" rel="external">Build a RESTful API Using Node and Express 4</a> (原作者 Chris Sevilleja)</p>
-<p>在开发过程中，前后端不论是否分离，接口多半是滞后于页面开发的。所以建立一个REST风格的API接口，给前端页面提供虚拟的数据，是非常有必要的。</p>
-<p>express是啥？express是在Node基础上搭建的web框架，可以方便配置路由，定义中间件，错误处理，渲染模版等。用Node和Express建立一个REST风格的API接口需要用到body-parser，body-parser是一个中间件，会帮我们解析post request的body部分，然后我们在处理请求的时候可以直接使用req.body获得request的body部分。</p>
-<p>下面我将详细介绍我用 vue-cli 搭建的项目中使用Node和Express打造restful API的具体操作。<br>用vue init webpack “文件夹名” 搭建的项目中，已经安装了express、body-parser这些插件，无需再安装了。</p>
-<h3 id="新建xxx-json文件"><a href="#新建xxx-json文件" class="headerlink" title="新建xxx.json文件"></a>新建xxx.json文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">项目目录结构</div><div class="line"></div><div class="line">|——build</div><div class="line">|   |——build.js</div><div class="line">|   |——check-versions.js</div><div class="line">|   |——dev-client.js</div><div class="line">|   |——dev-server</div><div class="line">|   |——utils.js</div><div class="line">|   .....</div><div class="line">|——config</div><div class="line">|   |——dev.env.js</div><div class="line">|   |——index.js</div><div class="line">|   |——prod.env.js</div><div class="line">|——node_modules</div><div class="line">|——src</div><div class="line">|——static</div><div class="line">|——.balelrc</div><div class="line">|——.enditorconfig</div><div class="line">|——.gitignore</div><div class="line">|——.postcssrc.js</div><div class="line">|——db.json</div><div class="line">|——index.html</div><div class="line">|——package.json</div><div class="line">|——README.md</div></pre></td></tr></table></figure>
-<p>在主目录下新建一个db.json文件，并写以下内容（写你自己想要获取的内容）：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"getNewsList"</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="string">"id"</span>: 1,</div><div class="line">      <span class="string">"title"</span>: <span class="string">"新闻1标题"</span>,</div><div class="line">      <span class="string">"url"</span>: <span class="string">"http://starcraft.com"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"id"</span>: 2,</div><div class="line">      <span class="string">"title"</span>: <span class="string">"新闻2标题发布"</span>,</div><div class="line">      <span class="string">"url"</span>: <span class="string">"http://warcraft.com"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"id"</span>: 3,</div><div class="line">      <span class="string">"title"</span>: <span class="string">"新闻3标题呀呀呀"</span>,</div><div class="line">      <span class="string">"url"</span>: <span class="string">"http://overwatch.com"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"id"</span>: 4,</div><div class="line">      <span class="string">"title"</span>: <span class="string">"新闻4标题新闻4标题新闻4标题"</span>,</div><div class="line">      <span class="string">"url"</span>: <span class="string">"http://hearstone.com"</span></div><div class="line">    &#125;</div><div class="line">  ],</div><div class="line">  <span class="string">"login"</span>: &#123;</div><div class="line">    <span class="string">"username"</span>: <span class="string">"zhouasan"</span>,</div><div class="line">    <span class="string">"userId"</span>: 123123</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="搭建server"><a href="#搭建server" class="headerlink" title="搭建server"></a>搭建server</h3><p>vue-cli搭建出来的项目，所有的测试符都在 build/dev-server.js 这个文件中，现在打开这个文件设置express和配置路由，添加下面这一段代码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">//用Node和Express提供虚拟的后台数据</div><div class="line">//express是在Node基础上搭建的web框架，可以方便配置路由，定义中间件，错误处理，渲染模版等。</div><div class="line">var apiServer = express() //获得express定义的apiServer,apiServer对象此时代表整个web应用</div><div class="line">var bodyParser = require(<span class="string">'body-parser'</span>) //加载body-parser</div><div class="line">// 给app配置bodyParser中间件</div><div class="line">// 通过如下配置在路由中处理request时，可以直接获得post请求的body部分</div><div class="line">apiServer.use(bodyParser.urlencoded(&#123; extended: <span class="literal">true</span> &#125;))</div><div class="line">apiServer.use(bodyParser.json()) </div><div class="line">var apiRouter = express.Router() //获得express的router对象</div><div class="line">var fs = require(<span class="string">'fs'</span>)</div><div class="line">apiRouter.route(<span class="string">'/:apiName'</span>) //根api目录下接口对应的是不同的json数据，apiName来设置</div><div class="line">.all(<span class="keyword">function</span> (req, res) &#123;  //.all请求，无论是get/post/put/delete请求都执行后面的回调</div><div class="line">  fs.readFile(<span class="string">'./db.json'</span>, <span class="string">'utf8'</span>, <span class="keyword">function</span> (err, data) &#123; //通过node的fs去读db.json文件，编码是utf8</div><div class="line">    <span class="keyword">if</span> (err) throw err</div><div class="line">    var data = JSON.parse(data) //使用JSON.parse方法把文件中data里面的数据强行转换成js的对象</div><div class="line">    <span class="keyword">if</span> (data[req.params.apiName]) &#123;  //有了data对象之后，通过req.params取得当前访问url的端口名</div><div class="line">      res.json(data[req.params.apiName]) //当前端口名存在的话，我们将data以json的形式返回到接口中</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">      res.send(<span class="string">'no such api name'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;)</div><div class="line">//注册路由</div><div class="line">apiServer.use(<span class="string">'/api'</span>, apiRouter); //所有的路由会加上<span class="string">"/api"</span>前缀</div><div class="line">apiServer.listen(port + 1, <span class="keyword">function</span> (err) &#123; //监听port+1这个端口</div><div class="line">  <span class="keyword">if</span> (err) &#123;</div><div class="line">    console.log(err)</div><div class="line">    <span class="built_in">return</span></div><div class="line">  &#125;</div><div class="line">  console.log(<span class="string">'Listening at http://localhost:'</span> + (port + 1) + <span class="string">'\n'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>以上做了如下事情<br>基本设置：<br>通过require获取需要使用的模块，首先获取express，然后通过express模块获取代表当前web应用的app实例，然后在app中把我们需要的中间件bodyParser注册到其中，然后设置web应用的监听的接口。<br>配置路由<br>这块通过express获取当前web应用的Router实例，然后在router上面注册上我们的路由，然后在以中间件的形式注册到web 应用上。<br>启动server<br>让web应用监听指定的接口，启动之后，就可以测试我们的web应用了。</p>
-<h3 id="启动server然后测试"><a href="#启动server然后测试" class="headerlink" title="启动server然后测试"></a>启动server然后测试</h3><p>这一步启动我们的server然后向之前定义的路由发送请求，看server是否会有响应，执行如下命令行启动server<br>$ npm run dev</p>
-<p>这个时候访问 <a href="http://localhost:8080/页面正常显示，然后访问" target="_blank" rel="external">http://localhost:8080/页面正常显示，然后访问</a> <a href="http://localhost:8081/" target="_blank" rel="external">http://localhost:8081/</a> 可以查看json-server配置的接口是否请求成功。port端口可以在config/index.js文件中设置。</p>
-<h3 id="开启服务器端口代理"><a href="#开启服务器端口代理" class="headerlink" title="开启服务器端口代理"></a>开启服务器端口代理</h3><p>打开config/index.js文件，增加proxyTable项设置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">dev: &#123;</div><div class="line">  env: require(<span class="string">'./dev.env'</span>),</div><div class="line">  port: 8080,</div><div class="line">  autoOpenBrowser: <span class="literal">true</span>,</div><div class="line">  assetsSubDirectory: <span class="string">'static'</span>,</div><div class="line">  assetsPublicPath: <span class="string">'/'</span>,</div><div class="line">  proxyTable: &#123;</div><div class="line">    <span class="string">'/api/'</span>:<span class="string">'http://localhost:8081'</span></div><div class="line">   &#125;, //jsonServer开启端口代理,访问api这个接口会自动代理到8081端口</div><div class="line">  ....</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="操作数据"><a href="#操作数据" class="headerlink" title="操作数据"></a>操作数据</h3><p>现在到vue组建中发起一个简单的get请求<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> <span class="function"><span class="title">created</span></span>() &#123;</div><div class="line">   this.<span class="variable">$http</span>.get(<span class="string">'api/getNewsList'</span>)</div><div class="line">   .<span class="keyword">then</span>((res) =&gt; &#123;</div><div class="line">     console.log(res.data)</div><div class="line">   	//this.newsList = res.data</div><div class="line">   &#125;,(err) =&gt; &#123;</div><div class="line">     console.log(err)</div><div class="line">   &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>重启服务器就好了，如果报错说端口占用，改一下端口就好了。<br><em><br>备注：以上内容纯属使用过程的笔记记录，不对之处请不吝赐教。</em></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wxzf.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">nede</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">express</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yyzhen.top/2017/09/28/用Node和Express打造restful-API/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/10/31/vuejs如何在服务器部署/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vuejs如何在服务器部署
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/09/28/使用json-server模拟REST-API/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用json-server模拟REST API</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -383,9 +243,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

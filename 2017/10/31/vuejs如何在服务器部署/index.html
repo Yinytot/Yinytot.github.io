@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//yyzhen.top">
-  <title>用Node和Express打造restful API | Yinytot的博客</title>
+  <title>vuejs如何在服务器部署 | Yinytot的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考网址：http://www.cnblogs.com/winyh/p/6704418.html原文： Build a RESTful API Using Node and Express 4 (原作者 Chris Sevilleja) 在开发过程中，前后端不论是否分离，接口多半是滞后于页面开发的。所以建立一个REST风格的API接口，给前端页面提供虚拟的数据，是非常有必要的。 express是啥">
-<meta name="keywords" content="nede,express">
+  <meta name="description" content="参考网址：http://www.cnblogs.com/winyh/p/6704418.html原文： Build a RESTful API Using Node and Express 4 (原作者 Chris Sevilleja) VUE 是一个javascript的前端框架，它是运行在浏览器里的，对服务器本身没有任何要求，只要一个静态文件服务器能通过http访问到其资源文件就可以了！无论你">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用Node和Express打造restful API">
-<meta property="og:url" content="//yyzhen.top/2017/09/28/用Node和Express打造restful-API/index.html">
+<meta property="og:title" content="vuejs如何在服务器部署">
+<meta property="og:url" content="//yyzhen.top/2017/10/31/vuejs如何在服务器部署/index.html">
 <meta property="og:site_name" content="Yinytot的博客">
-<meta property="og:description" content="参考网址：http://www.cnblogs.com/winyh/p/6704418.html原文： Build a RESTful API Using Node and Express 4 (原作者 Chris Sevilleja) 在开发过程中，前后端不论是否分离，接口多半是滞后于页面开发的。所以建立一个REST风格的API接口，给前端页面提供虚拟的数据，是非常有必要的。 express是啥">
-<meta property="og:updated_time" content="2017-10-20T06:37:16.413Z">
+<meta property="og:description" content="参考网址：http://www.cnblogs.com/winyh/p/6704418.html原文： Build a RESTful API Using Node and Express 4 (原作者 Chris Sevilleja) VUE 是一个javascript的前端框架，它是运行在浏览器里的，对服务器本身没有任何要求，只要一个静态文件服务器能通过http访问到其资源文件就可以了！无论你">
+<meta property="og:updated_time" content="2017-10-31T12:49:24.773Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用Node和Express打造restful API">
-<meta name="twitter:description" content="参考网址：http://www.cnblogs.com/winyh/p/6704418.html原文： Build a RESTful API Using Node and Express 4 (原作者 Chris Sevilleja) 在开发过程中，前后端不论是否分离，接口多半是滞后于页面开发的。所以建立一个REST风格的API接口，给前端页面提供虚拟的数据，是非常有必要的。 express是啥">
+<meta name="twitter:title" content="vuejs如何在服务器部署">
+<meta name="twitter:description" content="参考网址：http://www.cnblogs.com/winyh/p/6704418.html原文： Build a RESTful API Using Node and Express 4 (原作者 Chris Sevilleja) VUE 是一个javascript的前端框架，它是运行在浏览器里的，对服务器本身没有任何要求，只要一个静态文件服务器能通过http访问到其资源文件就可以了！无论你">
   
     <link rel="alternative" href="/atom.xml" title="Yinytot的博客" type="application/atom+xml">
   
@@ -165,20 +165,20 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-用Node和Express打造restful-API" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vuejs如何在服务器部署" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      用Node和Express打造restful API
+      vuejs如何在服务器部署
     </h1>
   
 
         
-        <a href="/2017/09/28/用Node和Express打造restful-API/" class="archive-article-date">
-  	<time datetime="2017-09-28T08:43:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+        <a href="/2017/10/31/vuejs如何在服务器部署/" class="archive-article-date">
+  	<time datetime="2017-10-31T12:41:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-31</time>
 </a>
         
       </header>
@@ -186,7 +186,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>参考网址：<br><a href="http://www.cnblogs.com/winyh/p/6704418.html" target="_blank" rel="external">http://www.cnblogs.com/winyh/p/6704418.html</a><br>原文： <a href="https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4#our-application" target="_blank" rel="external">Build a RESTful API Using Node and Express 4</a> (原作者 Chris Sevilleja)</p>
-<p>在开发过程中，前后端不论是否分离，接口多半是滞后于页面开发的。所以建立一个REST风格的API接口，给前端页面提供虚拟的数据，是非常有必要的。</p>
+<p>VUE 是一个javascript的前端框架，它是运行在浏览器里的，对服务器本身没有任何要求，只要一个静态文件服务器能通过http访问到其资源文件就可以了！无论你是用apache,ngnix都是可以的。</p>
 <p>express是啥？express是在Node基础上搭建的web框架，可以方便配置路由，定义中间件，错误处理，渲染模版等。用Node和Express建立一个REST风格的API接口需要用到body-parser，body-parser是一个中间件，会帮我们解析post request的body部分，然后我们在处理请求的时候可以直接使用req.body获得request的body部分。</p>
 <p>下面我将详细介绍我用 vue-cli 搭建的项目中使用Node和Express打造restful API的具体操作。<br>用vue init webpack “文件夹名” 搭建的项目中，已经安装了express、body-parser这些插件，无需再安装了。</p>
 <h3 id="新建xxx-json文件"><a href="#新建xxx-json文件" class="headerlink" title="新建xxx.json文件"></a>新建xxx.json文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">项目目录结构</div><div class="line"></div><div class="line">|——build</div><div class="line">|   |——build.js</div><div class="line">|   |——check-versions.js</div><div class="line">|   |——dev-client.js</div><div class="line">|   |——dev-server</div><div class="line">|   |——utils.js</div><div class="line">|   .....</div><div class="line">|——config</div><div class="line">|   |——dev.env.js</div><div class="line">|   |——index.js</div><div class="line">|   |——prod.env.js</div><div class="line">|——node_modules</div><div class="line">|——src</div><div class="line">|——static</div><div class="line">|——.balelrc</div><div class="line">|——.enditorconfig</div><div class="line">|——.gitignore</div><div class="line">|——.postcssrc.js</div><div class="line">|——db.json</div><div class="line">|——index.html</div><div class="line">|——package.json</div><div class="line">|——README.md</div></pre></td></tr></table></figure>
@@ -239,11 +239,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">nede</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">express</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -299,7 +295,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yyzhen.top/2017/09/28/用Node和Express打造restful-API/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yyzhen.top/2017/10/31/vuejs如何在服务器部署/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +309,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2017/10/31/vuejs如何在服务器部署/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vuejs如何在服务器部署
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/28/使用json-server模拟REST-API/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用json-server模拟REST API</div>
+    <a href="/2017/09/28/用Node和Express打造restful-API/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用Node和Express打造restful API</div>
       <i class="icon-circle-right"></i>
     </a>
   
