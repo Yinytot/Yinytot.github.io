@@ -15,7 +15,7 @@
 <meta property="og:url" content="//yyzhen.top/2017/10/31/vuejs如何在服务器部署/index.html">
 <meta property="og:site_name" content="Yinytot的博客">
 <meta property="og:description" content="上传到网站服务器VUE 是一个javascript的前端框架，它是运行在浏览器里的，对服务器本身没有任何要求，只要一个静态文件服务器能通过http访问到其资源文件就可以了！无论你是用apache,ngnix都是可以的。 npm run dev 是用来在本地开发的时候做调试用的，通过npm run build 把生成的dist文件夹（不要上传文件夹）里的内容上传到http服务器上就可以通过 http">
-<meta property="og:updated_time" content="2017-11-01T03:34:57.053Z">
+<meta property="og:updated_time" content="2017-11-01T03:38:31.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vuejs如何在服务器部署">
 <meta name="twitter:description" content="上传到网站服务器VUE 是一个javascript的前端框架，它是运行在浏览器里的，对服务器本身没有任何要求，只要一个静态文件服务器能通过http访问到其资源文件就可以了！无论你是用apache,ngnix都是可以的。 npm run dev 是用来在本地开发的时候做调试用的，通过npm run build 把生成的dist文件夹（不要上传文件夹）里的内容上传到http服务器上就可以通过 http">
@@ -189,7 +189,7 @@ var _hmt = _hmt || [];
 <p>npm run dev 是用来在本地开发的时候做调试用的，通过npm run build 把生成的dist文件夹（不要上传文件夹）里的内容上传到http服务器上就可以通过 http来访问了，开发机上正常，上传以后程序出现错误不能运行的原因99.99%的可能性是你引用资源的路径有问题。</p>
 <p>一般如果vue框架的程序上传到网站服务器的根目录下是不会有问题的，也不存在资源文件引用错误的情况，但如果你不是上传到根目录，就会有问题，通过vue-cli生成的开发目录，build以后默认引用资源文件的路径是<br>比如 app.js的引用方式<script type="text/javascript" src="/static/js/app.js"></script></p>
 <p>所以，如果你的目录结构是如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">项目目录结构</div><div class="line"></div><div class="line">|——www/</div><div class="line">|	|</div><div class="line">    |__hot/</div><div class="line"> 	    |</div><div class="line">        |__static/</div><div class="line">            |</div><div class="line">		    |_index.html</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">项目目录结构</div><div class="line"></div><div class="line">|——www/</div><div class="line">	|</div><div class="line">    |__hot/</div><div class="line"> 	    |</div><div class="line">        |__static/</div><div class="line">            |</div><div class="line">		    |_index.html</div></pre></td></tr></table></figure>
 <p>当你通过<a href="http://www.xxx.com/hot/index.html来访问的时候，会出现找不到app.js。" target="_blank" rel="external">http://www.xxx.com/hot/index.html来访问的时候，会出现找不到app.js。</a><br>因为index.html里引用的app.js路径是 <a href="http://www.xxx.com/static/js/app.js" target="_blank" rel="external">http://www.xxx.com/static/js/app.js</a><br>但是app.js的实际路径是 <a href="http://www.xxx.com/hot/static/js/app.js，所以出现了404错误。" target="_blank" rel="external">http://www.xxx.com/hot/static/js/app.js，所以出现了404错误。</a></p>
 <p>解决方法很简单，把引用方式改成下面两种方式都可以</p>
 <p><script type="text/javascript" src="./static/js/app.js"></script><br>或者</p>
